@@ -13,7 +13,6 @@ with open("session.txt") as f:
 def setup_day():
     # Get current day and the day's URL
     day = date.today().day
-    day=2
     day_url = f"{URL}/{YEAR}/day/{day}"
 
 
