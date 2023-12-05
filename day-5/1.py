@@ -20,34 +20,36 @@ def main(filename):
 
     import math
     minimum = math.inf
-    next = []
     for map in maps:
+        next = []
         for map_range in map:
-            for pair in current:
-                pair = current.pop(0)
-                print(pair)
-            
+            next_current = []
+            for pair in current:  
                 dest, src, length = map_range
-                print(dest, src, length)
-                if pair[0] >= src and pair[1] < src + length:
+
+                if pair[0] >= src + length or pair[1] < src:
+                    next_current.append(pair)
+                elif pair[0] >= src and pair[1] < src + length:
                     inc = dest - src
                     next.append([pair[0] + inc, pair[1] + inc])
                 elif pair[0] >= src and pair[1] >= src + length:
-                    next.append([pair[0] + dest - src, src + length - 1])
-                    current.append([src + length, pair[1]])
+                    inc = dest - src
+                    next.append([pair[0] + inc, src + length - 1 + inc])
+                    next_current.append([src + length, pair[1]])
                 elif pair[0] < src and pair[1] < src + length:
-                    next.append([pair[0], src - 1])
-                    current.append([src, pair[1]])
-                elif pair[0] >= src + length or pair[1] < src:
-                    next.append(pair)
+                    inc = dest - src
+                    next_current.append([pair[0], src - 1])
+                    next.append([src + inc, pair[1] + inc])
                 else:
-                    next.append([src, src + length - 1])
-                    current.append([pair[0], src - 1])
-                    current.append([src + length, pair[1]])
-                print(current)
-                print(next)
-                input()
-            print(current)
+                    inc = dest - src
+                    next.append([src + inc, src + length - 1 + inc])
+                    next_current.append([pair[0], src - 1])
+                    next_current.append([src + length, pair[1]])
+                
+            current = next_current
+
+        for pair in current:
+            next.append(pair)
         current = next
     
     
@@ -57,4 +59,4 @@ def main(filename):
     print(minimum)
 
 main("test.txt")
-#main("input.txt")
+main("input.txt")
