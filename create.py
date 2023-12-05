@@ -35,11 +35,11 @@ if __name__ == '__main__':
     waiting = True
     while waiting:
         now = datetime.now()
-        h, m, s = now.hour, now.minute, (now.second - 3) % 60
+        h, m, s = now.hour, now.minute, (now.second - 1) % 60
 
         print(f"  -  Waiting... {h:0>2d}:{m:0>2d}:{s:0>2d}", end="\r")
 
-        if h == 5 and m == 0 and s == 0:
+        if h == 5 and m == 0 and s >= 0:
             print("Attempting setup...\t\t")
             setup_day()
             waiting = False
