@@ -1,9 +1,5 @@
 
-def main(filename):
-    with open(filename) as f:
-        lines = [line.strip() for line in f.readlines()]
-
-    print(lines)
-
-main("input.txt")
-main("test.txt")
+# oops
+# forgot to copy over to this file before doing part 2
+# so now `1.py` contains the part 2 solution
+# can't be bothered to recreate my part 1 solution
