@@ -1,4 +1,5 @@
 from time import sleep
+from sys import argv
 from datetime import date, datetime
 from subprocess import call
 
@@ -31,7 +32,15 @@ def setup_day():
     # Gets the input data
     call(f'curl --cookie "session={SESSION}"  {day_url}/input > day-{day}/input.txt', shell=True)
 
+def get_test():
+    pass
+
 if __name__ == '__main__':
+    if len(argv) > 1:
+        print("Attempting setup...\t\t")
+        setup_day()
+        exit()
+
     waiting = True
     while waiting:
         now = datetime.now()

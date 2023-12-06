@@ -1,1 +1,1 @@
-py create.py
+py create.py 1
