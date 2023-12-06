@@ -3,30 +3,18 @@ import math
 import numpy as np
 
 # The expected result from the test input, if using a test input
-TEST_RESULT = None
-
-
-
+TEST_RESULT = 71503
 
 # Method to solve the input stored in a given file name
 def solve(filename: str, debug: bool = False) -> int:
-    # Opens the file and reads the lines into a list
+    # --- INPUT HANDLING ---
     with open(filename) as f:
-        lines = [line.strip() for line in f.readlines()]
+        t = int(f.readline()[10:].replace(" ", ""))
+        d = int(f.readline()[10:].replace(" ", ""))
 
-    # Prints lines to ensure input is being read correctly
-    if debug: print(lines)
-
-    # --- CODE IMPLEMENTATION ---
-
-
-
-    # Returns the result of solving the given input
-    return 0
-
-
-
-
+    # --- SOLUTION CODE ---
+    x = math.ceil((t - math.sqrt(t * t - 4 * d)) / 2 + 1e-10)
+    return t - 2 * x + 1
 
 # DO NOT TOUCH - AUTO TEST AND SUBMISSION CODE
 test_result = solve("test.txt", True)
