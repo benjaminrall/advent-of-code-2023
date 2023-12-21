@@ -13,25 +13,25 @@ def setup_day():
     day = date.today().day
     day_url = aoc.get_day_url()
 
-
     # Opens today's challenge in the default browser
     # call(f'explorer {day_url}', shell=True)
-    #aoc.open_day(8, 2022)
-    #aoc.save_day_input("day-8/", 8, 2022)
+    aoc.open_day()
+    aoc.save_day_input()
+
+    
 
 
+    # # Creates the directory and opens it with vscode
+    # call(f'mkdir day-{day}', shell=True)
+    # call(f'code .\\day-{day}', shell=True)
 
-    # Creates the directory and opens it with vscode
-    call(f'mkdir day-{day}', shell=True)
-    call(f'code .\\day-{day}', shell=True)
+    # # Creates python files from template, and test input file
+    # call(f'copy template.py .\\day-{day}\\1.py', shell=True)
+    # call(f'copy template.py .\\day-{day}\\2.py', shell=True)
+    # call(f'copy NUL .\\day-{day}\\test.txt', shell=True)
 
-    # Creates python files from template, and test input file
-    call(f'copy template.py .\\day-{day}\\1.py', shell=True)
-    call(f'copy template.py .\\day-{day}\\2.py', shell=True)
-    call(f'copy NUL .\\day-{day}\\test.txt', shell=True)
-
-    # Gets the input data
-    call(f'curl --cookie "session={SESSION}"  {day_url}/input > day-{day}/input.txt', shell=True)
+    # # Gets the input data
+    # call(f'curl --cookie "session={SESSION}"  {day_url}/input > day-{day}/input.txt', shell=True)
 
     # aoc.
 
