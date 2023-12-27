@@ -12,10 +12,8 @@ def solve(filename: str, debug: bool = False) -> int:
     with open(filename) as f:
         grid = np.array([[1 if c == '#' else 0 if c == '.' else 2 for c in line.strip()] for line in f.readlines()])
 
-
-    print(grid)
-    print(np.where(grid == 2))
-
+    STEPS = 20
+    print(STEPS)
 
     for step in range(STEPS):
         w = np.where(grid == 2)
@@ -33,7 +31,6 @@ def solve(filename: str, debug: bool = False) -> int:
                 if grid[y, x + 1] == 0:
                     grid[y, x + 1] = 2 
             grid[y, x] = 0
-        print(grid)
 
     # --- SOLUTION CODE ---
     return len(np.where(grid == 2)[0])
