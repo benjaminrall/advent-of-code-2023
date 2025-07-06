@@ -20,3 +20,6 @@ cd day-1
 ```sh
 uv run part1.py
 ```
+
+## License
+This project is licensed under the **MIT License**. See the [`LICENSE`](./LICENSE) file for details.
